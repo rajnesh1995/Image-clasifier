@@ -1,4 +1,5 @@
 # import all the libraries
+from google.colab import drive, files
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from keras.preprocessing.image import ImageDataGenerator
@@ -16,15 +17,13 @@ TEST_FILE = "text_file.txt"
 MODEL_FILE = "model.h5"
 
 # if GOOGLE_COLAB:
-#    ! pip install livelossplot
+# pip install livelossplot
 # from livelossplot import PlotLossesKeras
 
+# mount the drive and give Autorization
+drive.mount('/content/drive/')
 # data Loading
-path = ""
-if GOOGLE_COLAB:
-    from google.colab import drive, files
-    drive.mount('/content/drive/')
-    path = "/content/drive/ My Drive/image_classifier/"
+path = "/content/drive/ My Drive/image_classifier/"
 training_data_dir = path + "data/training"  # 10,000 data for each class
 validation_data_dir = path + "data/validation"  # 2500 each for the classes
 test_data_dir = path + "data/test"  # 12,500
